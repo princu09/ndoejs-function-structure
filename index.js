@@ -4,8 +4,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import http from "http";
 
-import allRoutes from "./routes/index.js";
-
 dotenv.config();
 const PORT = process.env.PORT;
 const BaseURL = process.env.BaseURL || "http://localhost";
@@ -21,7 +19,12 @@ app.use(
   })
 );
 
+// import all routes
+import allRoutes from "./routes/index.js";
+
 app.use("/api", allRoutes);
+
+const server = http.createServer(app);
 
 server.listen(PORT, () =>
   console.log(`Server running on port: ${BaseURL}:${PORT}`)
