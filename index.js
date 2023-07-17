@@ -5,7 +5,7 @@ import cors from "cors";
 import http from "http";
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 const BaseURL = process.env.BaseURL || "http://localhost";
 
 const app = express();
